@@ -458,6 +458,8 @@ bool AppInit2()
     const char* pszP2SH = "/P2SH/";
     COINBASE_FLAGS << std::vector<unsigned char>(pszP2SH, pszP2SH+strlen(pszP2SH));
 
+    if (!mapArgs.count("-iamtester"))
+        return InitError("This version shouldn't be used for production purposes. Set -iamtester command line key if you are agree.");
 
     if (mapArgs.count("-paytxfee"))
     {
